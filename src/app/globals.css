@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap");
 
 @import "tailwindcss";
-
-
-
 
 @theme inline {
   --color-background: var(--background);
@@ -13,7 +10,7 @@
 }
 
 body {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 .btn-scope {
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -35,9 +32,6 @@ body {
   animation: floatY 4s ease-in-out infinite;
 }
 
-
-
-
 @layer utilities {
   /* Side corners ko andhera karne ke liye */
   .bg-radial-gradient-vignette {
@@ -51,7 +45,8 @@ body {
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -62,8 +57,12 @@ body {
 /* Add this to the bottom of src/app/globals.css */
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -76,15 +75,17 @@ body {
 
 /* --- Add this to globals.css --- */
 
-
-
 .font-orbitron {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -172,7 +173,6 @@ body {
   animation-play-state: paused;
 }
 
-
 /* --- Kshitij Style Navbar Hover --- */
 
 .nav-hover-btn {
@@ -186,28 +186,31 @@ body {
 .nav-hover-btn:hover {
   /* BACKGROUND: Neon Green (top) se Dark Green (bottom) gradient */
   background: linear-gradient(
-    180deg, 
-    rgba(0, 255, 158, 0.2) 0%,   /* Neon Green tint */
-    rgba(0, 50, 20, 0.4) 100%    /* Darker Green shade */
+    180deg,
+    rgba(0, 255, 158, 0.2) 0%,
+    /* Neon Green tint */ rgba(0, 50, 20, 0.4) 100% /* Darker Green shade */
   );
 
   /* BORDER: Halka sa neon border */
   border: 1px solid rgba(0, 255, 158, 0.4);
 
   /* SHADOW: Glow effect bahar ki taraf */
-  box-shadow: 0 0 15px rgba(0, 255, 158, 0.25), inset 0 0 10px rgba(0, 255, 158, 0.05);
+  box-shadow:
+    0 0 15px rgba(0, 255, 158, 0.25),
+    inset 0 0 10px rgba(0, 255, 158, 0.05);
 
   /* TEXT: Neon Green ho jayega */
-  color: #00FF9E;
+  color: #00ff9e;
   text-shadow: 0 0 8px rgba(0, 255, 158, 0.6);
-  
+
   /* Thoda upar uthega button feel dene ke liye */
   transform: translateY(-2px);
 }
 
 /* --- GLOBAL SCROLL FIXES --- */
 
-html, body {
+html,
+body {
   overflow-x: hidden !important; /* Horizontal scroll ko jad se khatam karega */
   position: relative;
   width: 100%;
@@ -229,4 +232,28 @@ html, body {
 .overflow-hidden-scroll {
   overflow: hidden !important;
   height: 100vh;
+}
+
+/* --- CUSTOM SCROLLBAR --- */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 16, 20, 0.5);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #22d3ee, #2563eb);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #22d3ee;
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #22d3ee rgba(15, 16, 20, 0.5);
 }

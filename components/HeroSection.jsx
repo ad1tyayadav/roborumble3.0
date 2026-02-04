@@ -110,9 +110,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-green-400 font-black tracking-widest text-center uppercase"
+            className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-green-400 font-black tracking-widest text-center uppercase px-4"
             style={{
-              fontSize: "clamp(32px, 5vw, 64px)",
+              fontSize: "clamp(28px, 6vw, 64px)",
               filter: "drop-shadow(0 0 20px rgba(34, 255, 200, 0.5))",
             }}
           >
@@ -127,11 +127,11 @@ const HeroSection = () => {
             className="relative group cursor-pointer"
           >
             <div className="absolute -inset-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded-lg blur-2xl opacity-20 group-hover:opacity-50 transition duration-500"></div>
-            <div className="relative px-12 py-4 bg-black/60 backdrop-blur-xl border border-white/10 rounded-lg flex flex-col items-center shadow-lg">
-              <span className="text-cyan-400 text-sm tracking-[0.4em] font-bold uppercase mb-1">
+            <div className="relative px-8 sm:px-12 py-3 sm:py-4 bg-black/60 backdrop-blur-xl border border-white/10 rounded-lg flex flex-col items-center shadow-lg">
+              <span className="text-cyan-400 text-[10px] sm:text-sm tracking-[0.3em] sm:tracking-[0.4em] font-bold uppercase mb-1">
                 Total Prize Pool
               </span>
-              <span className="text-white text-4xl md:text-5xl font-bold tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+              <span className="text-white text-2xl sm:text-4xl md:text-5xl font-bold tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
                 ₹ 1,56,000
               </span>
             </div>

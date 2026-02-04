@@ -19,14 +19,14 @@ const EventCard = ({ event, isActive, onOpenModal }) => {
           alt={event.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute top-3 right-3 z-20 bg-black/80 border border-[#00FF00] px-2 py-1 rounded text-[10px] text-[#00FF00] font-bold shadow-[0_0_10px_#00FF00]">
+        <div className="absolute top-2 sm:top-3 right-2 sm:right-3 z-20 bg-black/80 border border-[#00FF00] px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[8px] sm:text-[10px] text-[#00FF00] font-bold shadow-[0_0_10px_#00FF00]">
           PRIZE: {event.prize}
         </div>
       </div>
 
       {/* Title Section */}
-      <div className="h-[15%] flex items-center justify-center bg-[#000a28]">
-        <h3 className="text-xl md:text-2xl font-bold text-white font-[Oswald] uppercase tracking-widest drop-shadow-md text-center">
+      <div className="h-[15%] flex items-center justify-center bg-[#000a28] px-2">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white font-[Oswald] uppercase tracking-widest drop-shadow-md text-center line-clamp-2">
           {event.title}
         </h3>
       </div>

@@ -66,13 +66,13 @@ const EventsSection = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center relative z-10">
 
         {/* === CONTENT SIDE === 
             On Mobile: Appears below the gallery (order-2)
             On Desktop: Appears on the left (lg:order-1)
         */}
-        <div className="lg:col-span-5 flex flex-col justify-center space-y-6 z-20 px-2 order-2 lg:order-1">
+        <div className="md:col-span-5 flex flex-col justify-center space-y-4 md:space-y-6 z-20 px-2 order-2 md:order-1">
           <h2 className="text-3xl md:text-5xl font-black text-white uppercase leading-tight tracking-wide">
             {events[0].title}
           </h2>
@@ -99,7 +99,7 @@ const EventsSection = () => {
             On Mobile: Appears first (order-1) and shorter height
             On Desktop: Takes up more space (lg:col-span-7)
         */}
-        <div className="lg:col-span-7 h-[280px] sm:h-[350px] md:h-[450px] flex relative z-10 order-1 lg:order-2">
+        <div className="md:col-span-7 h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex relative z-10 order-1 md:order-2">
           {events.map((event, index) => {
             const isActive = index === 0;
             return (
