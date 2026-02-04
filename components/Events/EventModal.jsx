@@ -37,7 +37,7 @@ const EventModal = ({ event, onClose }) => {
         </div>
 
         {/* --- RIGHT SIDE: CONTENT --- */}
-        <div className="w-full md:w-[65%] lg:w-[60%] p-5 sm:p-8 md:p-10 flex flex-col overflow-y-auto custom-scrollbar bg-[#0f1014]">
+        <div className="w-full md:w-[65%] lg:w-[60%] p-4 sm:p-8 md:p-10 flex flex-col md:overflow-y-auto custom-scrollbar bg-[#0f1014]">
           
           {/* Header */}
           <div className="mb-4 sm:mb-6">
