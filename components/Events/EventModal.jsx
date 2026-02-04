@@ -116,8 +116,6 @@ const EventModal = ({ event, onClose }) => {
                {isCompetition ? "Register Now" : "Book Seat"}
             </Link>
           </div>
-          </div>
-
         </div>
       </div>
     </div>
