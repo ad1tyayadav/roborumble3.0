@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 import NavbarWrapper from "../../components/NavbarWrapper";
 import CustomCursor from "../../components/CustomCursor";
+import Footer from "../../components/Footer";
 
 // 1. Orbitron Font Setup (Robotic Look ke liye)
 const orbitron = Orbitron({
@@ -41,11 +42,16 @@ export default function RootLayout({ children }) {
           relative           /* Navbar positioning ke liye stable base */
           bg-[#020617]       /* Dark background default */
           text-white         /* White text default */
+          flex flex-col
+          min-h-screen
         `}
       >
         <CustomCursor />
         <NavbarWrapper />
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

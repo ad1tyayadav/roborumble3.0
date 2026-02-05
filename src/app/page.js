@@ -4,7 +4,6 @@ import HeroSectionNew from "../../components/HeroSectionNew";
 import AboutUs from "../../components/Home/AboutUs";
 import EventsSection from "../../components/Home/EventSection";
 import Sponsors from "../../components/Home/Sponors";
-import Footer from "../../components/Home/Footer";
 
 export default function Home() {
   return (
@@ -16,8 +15,6 @@ export default function Home() {
         <AboutUs />
         <EventsSection />
         <Sponsors />
-        <Footer />
-
 
       </div>
 
