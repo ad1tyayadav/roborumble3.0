@@ -36,8 +36,8 @@ const Navbar = () => {
         <nav className="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
           {/* Left Side: Logo */}
           <Link href="/home" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10">
-              <Image src="/skull.png" alt="Logo" fill className="object-contain" />
+            <div className="relative w-16 h-16">
+              <Image src="/skull-1.png" alt="Logo" fill className="object-contain" />
             </div>
             <span className="text-white font-black text-xl tracking-tighter group-hover:text-[#00E5FF] transition-colors">
               ROBO RUMBLE
@@ -116,8 +116,8 @@ const Navbar = () => {
         {/* Sidebar Header */}
         <div className="flex items-center justify-between p-6 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <div className="relative w-8 h-8">
-              <Image src="/skull.png" alt="Logo" fill className="object-contain" />
+            <div className="relative w-12 h-12">
+              <Image src="/skull-1.png" alt="Logo" fill className="object-contain" />
             </div>
             <span className="text-white font-black text-lg tracking-tighter">
               MENU

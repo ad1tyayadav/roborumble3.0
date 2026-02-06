@@ -12,7 +12,7 @@ import {
   Users,
   Terminal,
 } from "lucide-react";
-import MatrixBackground from "../components/MatrixBackground";
+import StarryBackground from "../components/StarryBackground";
 import Footer from "../components/Footer";
 
 import AnnouncementSection from "../components/AnnouncementSection";
@@ -44,12 +44,9 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white relative overflow-x-hidden selection:bg-[#00F0FF] selection:text-black">
-      {/* Background Matrix Effect */}
-      <MatrixBackground color="#003B00" text="" />
-
-      {/* Background Matrix Effect */}
-      <MatrixBackground color="#003B00" text="" />
+    <main className="min-h-screen text-white relative overflow-x-hidden selection:bg-[#00F0FF] selection:text-black">
+      {/* Background Starry Effect */}
+      <StarryBackground />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-20">
@@ -198,7 +195,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Infinite Scrolling Sponsors Section */ }
+      {/* Infinite Scrolling Sponsors Section */}
       <section className="py-12 relative z-10 overflow-hidden">
         {/* Title Container */}
         <div className="container mx-auto px-4 md:px-6 mb-8">
@@ -256,7 +253,6 @@ export default function Home() {
       </section>
 
       <AnnouncementSection />
-      
 
       <Footer />
 

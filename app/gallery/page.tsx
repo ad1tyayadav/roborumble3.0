@@ -16,18 +16,18 @@ const orbitron = Orbitron({
 
 // Use robust images that are likely to load
 const galleryImages = [
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
-  "/skull.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
+  "/skull-1.png", 
 ];
 
 // Helper to shuffle/distribute images

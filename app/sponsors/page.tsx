@@ -72,7 +72,7 @@ const SponsorCard = ({
             src={sponsor.image}
             alt={sponsor.name}
             fill
-            className="object-cover transition-all duration-500 hover:scale-110 grayscale group-hover:grayscale-0"
+            className="object-cover transition-all duration-500 hover:scale-110"
           />
         </div>
 
@@ -219,7 +219,7 @@ export default function SponsorsPage() {
             <div className="flex justify-center w-full">
               <SlotText
                 text="PARTNERS_"
-                className="text-4xl md:text-6xl lg:text-8xl"
+                className="text-4xl md:text-6xl lg:text-8xl text-[#00F0FF]"
               />
             </div>
           </h1>
