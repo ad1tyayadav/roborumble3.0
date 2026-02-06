@@ -5,7 +5,8 @@ import { useState } from "react";
 import { SlotText } from "../components/SlotText";
 import Footer from "../components/Footer";
 import Image from "next/image";
-import { Linkedin, Mail, ShieldCheck, Cpu, Terminal } from "lucide-react";
+import Link from "next/link";
+import { Linkedin, Mail, ShieldCheck, Cpu, Terminal, Instagram } from "lucide-react";
 import { useAudio } from "../hooks/useAudio";
 
 // --- Types ---
@@ -16,6 +17,105 @@ interface TeamMember {
   image: string;
   bio?: string;
 }
+
+interface Contributor {
+  name: string;
+  dept: string;
+  image: string;
+  instagram?: string;
+  linkedin?: string;
+  email?: string;
+}
+
+const contributors: Contributor[] = [
+  {
+    name: "Shreya Jain",
+    dept: "IT, 3rd Year",
+    image: "/Shreya.jpeg",
+    instagram: "https://www.instagram.com/jain_shreya7905?igsh=Znplb2l4ZjZwZWxo",
+    linkedin: "https://www.linkedin.com/in/shreya-jain-ba7034275/",
+    email: "jainshreya6393@gmail.com"
+  },
+  {
+    name: "Mukut Kumar",
+    dept: "IT, 3rd Year",
+    image: "/Mukut.jpeg",
+    instagram: "https://www.instagram.com/abhi_nav.004?igsh=aTd6N3I0d2ZseTVk",
+    linkedin: "https://www.linkedin.com/in/mukut-kumar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    email: "mukutkumar842@gmail.com"
+  },
+  {
+    name: "Sumit Kumar",
+    dept: "CSE, 2nd Year",
+    image: "/sumit.jpeg",
+    instagram: "https://www.instagram.com/ska_0770?igsh=cGFzd3NvdWZvaHU3",
+    linkedin: "https://www.linkedin.com/in/sumit-kumar-122671322/",
+    email: "sumitkumar202006@gmail.com"
+  },
+  {
+    name: "Riya Sonker",
+    dept: "CSE, 2nd Year",
+    image: "/riya.jpeg",
+    instagram: "https://www.instagram.com/rittzz._.35",
+    linkedin: "https://www.linkedin.com/in/riya-sonker-53b329371",
+    email: "riyasonker0307@gmail.com"
+  },
+  {
+    name: "Ashutosh Saroj",
+    dept: "CSE, 2nd Year",
+    image: "/Skull.png",
+    instagram: "https://www.instagram.com/ashutosh__satya67",
+    linkedin: "https://www.linkedin.com/in/ashutosh-satya-37340b382?utm_source=share&utm_campaign=share_via&utm_content",
+    email: "sarojashutosh89@gmail.com"
+  }
+];
+
+const ContributorCard = ({ data, index }: { data: Contributor; index: number }) => {
+  return (
+    <div
+      className="group relative p-6 bg-black/40 border-l-2 border-t border-[#00F0FF]/30 hover:bg-[#00F0FF]/5 transition-all duration-500 backdrop-blur-sm overflow-hidden h-full"
+      style={{ clipPath: 'polygon(0 0, 95% 0, 100% 10%, 100% 100%, 5% 100%, 0 90%)' }}
+    >
+      <div className="text-[#00F0FF] font-mono text-[8px] mb-4 opacity-50 tracking-tighter uppercase">
+                // ASSET_LOG: {data.name.split(' ')[0]}
+      </div>
+
+      <div className="relative w-48 h-48 mx-auto mb-6 transition-all duration-500 overflow-hidden border border-white/10 p-1">
+        <Image src={data.image} alt={data.name} fill className="object-cover" />
+        <div className="absolute inset-0 border border-[#00F0FF]/20 group-hover:border-[#00F0FF] transition-colors" />
+      </div>
+
+      <div className="text-center mb-6">
+        <h3 className="text-xl font-black text-white font-mono uppercase tracking-tighter group-hover:text-[#00F0FF] transition-colors">
+          {data.name}
+        </h3>
+        <p className="text-[#00F0FF] font-mono text-[10px] mt-1 font-bold tracking-widest uppercase">
+          {data.dept}
+        </p>
+      </div>
+
+      <div className="flex justify-center gap-4 border-t border-white/5 pt-4">
+        {data.instagram && (
+          <Link href={data.instagram} target="_blank" className="text-zinc-500 hover:text-[#E1306C] transition-colors hover:scale-110 transform duration-200">
+            <Instagram size={18} />
+          </Link>
+        )}
+        {data.linkedin && (
+          <Link href={data.linkedin} target="_blank" className="text-zinc-500 hover:text-[#0077b5] transition-colors hover:scale-110 transform duration-200">
+            <Linkedin size={18} />
+          </Link>
+        )}
+        {data.email && (
+          <Link href={`mailto:${data.email}`} className="text-zinc-500 hover:text-[#EA4335] transition-colors hover:scale-110 transform duration-200">
+            <Mail size={18} />
+          </Link>
+        )}
+      </div>
+
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00F0FF]/5 to-transparent h-[20%] w-full -translate-y-full group-hover:translate-y-[200%] transition-transform duration-1000 pointer-events-none" />
+    </div>
+  );
+};
 
 // --- Internal Component: AssetCard ---
 const AssetCard = ({ member, delay }: { member: TeamMember; delay: number }) => {
@@ -243,6 +343,17 @@ export default function TeamPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {mediaPR.map((s, i) => <AssetCard key={i} member={s} delay={i * 0.1} />)}
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-xs font-mono font-bold text-white tracking-[0.5em] uppercase mb-10 border-b border-white/20 pb-4 flex items-center gap-4">
+              <Terminal size={14} /> // CONTRIBUTORS
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {contributors.map((contributor, index) => (
+                <ContributorCard key={index} data={contributor} index={index} />
+              ))}
             </div>
           </section>
         </div>
