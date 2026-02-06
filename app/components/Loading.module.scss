@@ -1,0 +1,1856 @@
+$background: #000000;
+// Neon Violet/Blue Theme
+$leftFace: #7B2CBF; // Deep Violet
+$rightFace: #3A0CA3; // Dark Blue/Indigo
+$topFace: #00F0FF; // Neon Cyan
+$scale: 1;
+$duration: 3s;
+$timingFunction: ease;
+
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background: $background;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  animation: sequence 3s linear forwards;
+  overflow: hidden;
+}
+
+// ... (face animation update) ...
+
+.face {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  transform-origin: 0 0;
+  animation: face-sequence 3s linear forwards;
+}
+
+// ... (line animation update) ...
+
+.loadingLine {
+  width: 100%;
+  height: 10px;
+  border: 1px solid #00F0FF; // Fixed border
+  box-shadow: 0 0 5px #00F0FF, inset 0 0 5px #00F0FF;
+  background: transparent; // No fill initially
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  animation: bar-glitch 2s infinite linear alternate-reverse;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%; // Start at 0
+    background: #00F0FF;
+    box-shadow: 0 0 10px #00F0FF;
+    animation: line-grow 2.5s linear forwards;
+  }
+}
+
+@keyframes line-grow {
+  0% {
+    width: 0%;
+  }
+
+  73.3% {
+    width: 40%;
+  }
+
+  75% {
+    width: 100%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+// ... existing glitch-skew and glitch-anim ...
+
+@keyframes sequence {
+
+  // Normal state
+  0% {
+    opacity: 1;
+    filter: none;
+  }
+
+  // High Frequency Glitches (Cluster every ~8-10%)
+
+  // Cluster 1
+  5% {
+    opacity: 1;
+    filter: none;
+    transform: translate(0);
+  }
+
+  5.1% {
+    filter: invert(1) contrast(3);
+    transform: translate(-3px, 3px);
+  }
+
+  5.2% {
+    filter: none;
+    transform: translate(0);
+  }
+
+  // Cluster 2
+  10% {
+    filter: none;
+  }
+
+  10.1% {
+    filter: hue-rotate(90deg) saturate(3);
+    transform: translate(3px, -3px);
+  }
+
+  10.3% {
+    filter: drop-shadow(4px 0 magenta);
+    transform: skew(2deg);
+  }
+
+  10.4% {
+    filter: none;
+    transform: translate(0) skew(0);
+  }
+
+  // Cluster 3
+  18% {
+    filter: none;
+  }
+
+  18.1% {
+    filter: invert(0.8);
+    transform: skew(-2deg);
+  }
+
+  18.2% {
+    filter: none;
+  }
+
+  // Cluster 4
+  25% {
+    filter: none;
+  }
+
+  25.1% {
+    filter: drop-shadow(-4px 0 cyan);
+    transform: translate(-2px, 0);
+  }
+
+  25.3% {
+    filter: invert(1);
+    transform: translate(2px, 2px);
+  }
+
+  25.4% {
+    filter: none;
+  }
+
+  // Cluster 5
+  32% {
+    filter: none;
+  }
+
+  32.1% {
+    filter: hue-rotate(180deg);
+    transform: scale(1.02);
+  }
+
+  32.2% {
+    filter: none;
+  }
+
+  // Cluster 6
+  40% {
+    filter: none;
+  }
+
+  40.1% {
+    filter: blur(2px) contrast(3);
+    transform: skew(3deg);
+  }
+
+  40.3% {
+    filter: none;
+  }
+
+  // Cluster 7
+  48% {
+    filter: none;
+  }
+
+  48.1% {
+    filter: invert(1);
+    transform: translate(-4px, -4px);
+  }
+
+  48.2% {
+    filter: none;
+  }
+
+  // Cluster 8
+  55% {
+    filter: none;
+  }
+
+  55.1% {
+    filter: hue-rotate(270deg) saturate(5);
+    transform: scale(0.98);
+  }
+
+  55.3% {
+    filter: none;
+  }
+
+  // Cluster 9
+  62% {
+    filter: none;
+  }
+
+  62.1% {
+    filter: drop-shadow(5px 0 lime);
+    transform: skew(-3deg);
+  }
+
+  62.2% {
+    filter: none;
+  }
+
+  // Cluster 10
+  70% {
+    filter: none;
+  }
+
+  70.1% {
+    filter: invert(1);
+    transform: translate(5px, 0);
+  }
+
+  70.2% {
+    filter: none;
+  }
+
+  // Cluster 11
+  78% {
+    filter: none;
+  }
+
+  78.1% {
+    filter: hue-rotate(45deg) contrast(2);
+  }
+
+  78.2% {
+    filter: none;
+  }
+
+  // Cluster 12
+  85% {
+    filter: none;
+  }
+
+  85.1% {
+    filter: blur(4px) invert(1);
+  }
+
+  85.2% {
+    filter: none;
+  }
+
+  // Heavy glitch start
+  88% {
+    opacity: 1;
+    filter: none;
+    transform: translate(0);
+    clip-path: none;
+  }
+
+  89% {
+    filter: drop-shadow(-10px 0 #00ff00) drop-shadow(10px 0 #ff00ff) invert(1) contrast(3);
+    transform: scale(1.05) skew(5deg);
+  }
+
+  90% {
+    filter: drop-shadow(10px 0 #00ffff) drop-shadow(-10px 0 #ff0000) saturate(5);
+    transform: translate(-15px, 0) skew(-10deg);
+    clip-path: inset(10% 0 80% 0);
+  }
+
+  91% {
+    filter: invert(1) contrast(5);
+    transform: translate(15px, 15px);
+    clip-path: inset(80% 0 5% 0);
+  }
+
+  92% {
+    filter: blur(4px) contrast(5) hue-rotate(90deg);
+    transform: translate(-15px, -10px) scale(0.9);
+    clip-path: none;
+  }
+
+  // Blackout
+  95% {
+    background-color: #000;
+    opacity: 1;
+    filter: brightness(0); // Force everything black
+  }
+
+  99% {
+    opacity: 1;
+    filter: brightness(0);
+  }
+
+  // Reveal
+  100% {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+  }
+}
+
+// ... container, cube, faces ...
+
+.face {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  transform-origin: 0 0;
+  animation: face-sequence 3s linear forwards;
+}
+
+@keyframes face-sequence {
+
+  // Normal state
+  0% {
+    filter: none;
+    opacity: 1;
+  }
+
+  // Frequent glitches
+
+  // Cluster 1
+  5% {
+    filter: none;
+    opacity: 1;
+  }
+
+  5.1% {
+    filter: invert(1) drop-shadow(4px 4px 0 #00ff00);
+    opacity: 1;
+  }
+
+  5.2% {
+    filter: none;
+    opacity: 1;
+  }
+
+  // Cluster 2
+  10% {
+    filter: none;
+  }
+
+  10.1% {
+    filter: hue-rotate(90deg) saturate(5);
+  }
+
+  10.3% {
+    filter: invert(0.5);
+  }
+
+  10.4% {
+    filter: none;
+  }
+
+  // Cluster 3
+  18% {
+    filter: none;
+  }
+
+  18.1% {
+    filter: saturate(10) contrast(3);
+  }
+
+  18.2% {
+    filter: none;
+  }
+
+  // Cluster 4
+  25% {
+    filter: none;
+  }
+
+  25.1% {
+    filter: drop-shadow(-4px -4px 0 #ff00ff);
+  }
+
+  25.3% {
+    filter: hue-rotate(180deg);
+  }
+
+  25.4% {
+    filter: none;
+  }
+
+  // Cluster 5
+  32% {
+    filter: none;
+  }
+
+  32.1% {
+    filter: invert(1);
+  }
+
+  32.2% {
+    filter: none;
+  }
+
+  // Cluster 6
+  40% {
+    filter: none;
+  }
+
+  40.1% {
+    filter: blur(2px);
+  }
+
+  40.3% {
+    filter: none;
+  }
+
+  // Cluster 7
+  48% {
+    filter: none;
+  }
+
+  48.1% {
+    filter: hue-rotate(270deg) contrast(4);
+  }
+
+  48.2% {
+    filter: none;
+  }
+
+  // Cluster 8
+  55% {
+    filter: none;
+  }
+
+  55.1% {
+    filter: invert(1) drop-shadow(4px 0 yellow);
+  }
+
+  55.3% {
+    filter: none;
+  }
+
+  // Cluster 9
+  62% {
+    filter: none;
+  }
+
+  62.1% {
+    filter: sepia(1) saturate(5);
+  }
+
+  62.2% {
+    filter: none;
+  }
+
+  // Cluster 10
+  70% {
+    filter: none;
+  }
+
+  70.1% {
+    filter: invert(1);
+  }
+
+  70.2% {
+    filter: none;
+  }
+
+  // Cluster 11
+  78% {
+    filter: none;
+  }
+
+  78.1% {
+    filter: drop-shadow(2px 2px white);
+  }
+
+  78.2% {
+    filter: none;
+  }
+
+  // Heavy glitch
+  88% {
+    filter: none;
+    opacity: 1;
+  }
+
+  89% {
+    filter: invert(1) drop-shadow(8px 8px 0px #ff00ae) contrast(3);
+    opacity: 0.8;
+  }
+
+  89.5% {
+    filter: hue-rotate(270deg) contrast(5) saturate(5);
+    opacity: 0.9;
+  }
+
+  90% {
+    filter: invert(0) sepia(1) saturate(10) drop-shadow(5px 0 #00ffff);
+    opacity: 1;
+  }
+
+  91% {
+    filter: invert(1) brightness(3) contrast(5);
+    opacity: 0.6;
+  }
+
+  92% {
+    filter: blur(2px) contrast(4) hue-rotate(45deg);
+    opacity: 0.9;
+  }
+
+  // Blackout
+  95% {
+    filter: brightness(0);
+    opacity: 1;
+  }
+
+  99% {
+    filter: brightness(0);
+    opacity: 1;
+  }
+
+  // Reveal
+  100% {
+    opacity: 0;
+  }
+}
+
+// ... textContainer, loadingText ...
+
+.loadingLine {
+  width: 100%;
+  height: 10px;
+  border: 1px solid #00F0FF; // Fixed border
+  box-shadow: 0 0 5px #00F0FF, inset 0 0 5px #00F0FF;
+  background: transparent; // No fill initially
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%; // Start at 0
+    background: #00F0FF;
+    box-shadow: 0 0 10px #00F0FF;
+    animation: line-grow 2.5s linear forwards;
+  }
+}
+
+@keyframes line-grow {
+  0% {
+    width: 0%;
+  }
+
+  89% {
+    width: 40%;
+  }
+
+  90% {
+    width: 100%;
+  }
+
+  // 1% gap = 100ms in 10s duration
+  100% {
+    width: 100%;
+  }
+}
+
+// ... existing glitch-skew and glitch-anim ...
+
+@keyframes sequence {
+
+  // Normal state
+  0% {
+    opacity: 1;
+    filter: none;
+  }
+
+  // Frequent minor glitches (Cluster every ~5-8s)
+
+  // Cluster 1 (Early)
+  5% {
+    opacity: 1;
+    filter: none;
+    transform: translate(0);
+  }
+
+  5.1% {
+    filter: invert(1) contrast(3);
+    transform: translate(-3px, 3px);
+  }
+
+  5.2% {
+    filter: none;
+    transform: translate(0);
+  }
+
+  // Cluster 2
+  12% {
+    filter: none;
+    transform: translate(0);
+  }
+
+  12.1% {
+    filter: hue-rotate(90deg) saturate(3);
+    transform: translate(3px, -3px);
+  }
+
+  12.3% {
+    filter: drop-shadow(4px 0 magenta);
+    transform: skew(2deg);
+  }
+
+  12.4% {
+    filter: none;
+    transform: translate(0) skew(0);
+  }
+
+  // Cluster 3
+  20% {
+    filter: none;
+  }
+
+  20.1% {
+    filter: invert(0.8);
+    transform: skew(-2deg);
+  }
+
+  20.2% {
+    filter: none;
+  }
+
+  // Cluster 4
+  28% {
+    filter: none;
+  }
+
+  28.1% {
+    filter: drop-shadow(-4px 0 cyan);
+    transform: translate(-2px, 0);
+  }
+
+  28.3% {
+    filter: invert(1);
+    transform: translate(2px, 2px);
+  }
+
+  28.4% {
+    filter: none;
+  }
+
+  // Cluster 5
+  35% {
+    filter: none;
+  }
+
+  35.1% {
+    filter: hue-rotate(180deg);
+    transform: scale(1.02);
+  }
+
+  35.2% {
+    filter: none;
+  }
+
+  // Cluster 6
+  45% {
+    filter: none;
+  }
+
+  45.1% {
+    filter: blur(2px) contrast(3);
+    transform: skew(3deg);
+  }
+
+  45.3% {
+    filter: none;
+  }
+
+  // Cluster 7
+  55% {
+    filter: none;
+  }
+
+  55.1% {
+    filter: invert(1);
+    transform: translate(-4px, -4px);
+  }
+
+  55.2% {
+    filter: none;
+  }
+
+  // Cluster 8
+  65% {
+    filter: none;
+  }
+
+  65.1% {
+    filter: hue-rotate(270deg) saturate(5);
+    transform: scale(0.98);
+  }
+
+  65.3% {
+    filter: none;
+  }
+
+  // Cluster 9
+  75% {
+    filter: none;
+  }
+
+  75.1% {
+    filter: drop-shadow(5px 0 lime);
+    transform: skew(-3deg);
+  }
+
+  75.2% {
+    filter: none;
+  }
+
+  // Heavy glitch start (~90% of 25s = 22.5s)
+  88% {
+    opacity: 1;
+    filter: none;
+    transform: translate(0);
+    clip-path: none;
+  }
+
+  89% {
+    filter: drop-shadow(-10px 0 #00ff00) drop-shadow(10px 0 #ff00ff) invert(1) contrast(3);
+    transform: scale(1.05) skew(5deg);
+  }
+
+  90% {
+    filter: drop-shadow(10px 0 #00ffff) drop-shadow(-10px 0 #ff0000) saturate(5);
+    transform: translate(-15px, 0) skew(-10deg);
+    clip-path: inset(10% 0 80% 0);
+  }
+
+  91% {
+    filter: invert(1) contrast(5);
+    transform: translate(15px, 15px);
+    clip-path: inset(80% 0 5% 0);
+  }
+
+  92% {
+    filter: blur(4px) contrast(5) hue-rotate(90deg);
+    transform: translate(-15px, -10px) scale(0.9);
+    clip-path: none;
+  }
+
+  // Blackout
+  95% {
+    background-color: #000;
+    opacity: 1;
+    filter: brightness(0); // Force everything black
+  }
+
+  99% {
+    opacity: 1;
+    filter: brightness(0);
+  }
+
+  // Reveal
+  100% {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+  }
+}
+
+// ... container, cube, faces ...
+
+.face {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  transform-origin: 0 0;
+  animation: face-sequence 25s linear forwards;
+}
+
+@keyframes face-sequence {
+
+  // Normal state
+  0% {
+    filter: none;
+    opacity: 1;
+  }
+
+  // Occasional minor glitches (Frequent hits)
+
+  // Cluster 1
+  5% {
+    filter: none;
+    opacity: 1;
+  }
+
+  5.1% {
+    filter: invert(1) drop-shadow(4px 4px 0 #00ff00);
+    opacity: 1;
+  }
+
+  5.2% {
+    filter: none;
+    opacity: 1;
+  }
+
+  // Cluster 2
+  12% {
+    filter: none;
+  }
+
+  12.1% {
+    filter: hue-rotate(90deg) saturate(5);
+  }
+
+  12.3% {
+    filter: invert(0.5);
+  }
+
+  12.4% {
+    filter: none;
+  }
+
+  // Cluster 3
+  20% {
+    filter: none;
+  }
+
+  20.1% {
+    filter: saturate(10) contrast(3);
+  }
+
+  20.2% {
+    filter: none;
+  }
+
+  // Cluster 4
+  28% {
+    filter: none;
+  }
+
+  28.1% {
+    filter: drop-shadow(-4px -4px 0 #ff00ff);
+  }
+
+  28.3% {
+    filter: hue-rotate(180deg);
+  }
+
+  28.4% {
+    filter: none;
+  }
+
+  // Cluster 5
+  35% {
+    filter: none;
+  }
+
+  35.1% {
+    filter: invert(1);
+  }
+
+  35.2% {
+    filter: none;
+  }
+
+  // Cluster 6
+  45% {
+    filter: none;
+  }
+
+  45.1% {
+    filter: blur(2px);
+  }
+
+  45.3% {
+    filter: none;
+  }
+
+  // Cluster 7
+  55% {
+    filter: none;
+  }
+
+  55.1% {
+    filter: hue-rotate(270deg) contrast(4);
+  }
+
+  55.2% {
+    filter: none;
+  }
+
+  // Cluster 8
+  65% {
+    filter: none;
+  }
+
+  65.1% {
+    filter: invert(1) drop-shadow(4px 0 yellow);
+  }
+
+  65.3% {
+    filter: none;
+  }
+
+  // Cluster 9
+  75% {
+    filter: none;
+  }
+
+  75.1% {
+    filter: sepia(1) saturate(5);
+  }
+
+  75.2% {
+    filter: none;
+  }
+
+  // Heavy glitch
+  88% {
+    filter: none;
+    opacity: 1;
+  }
+
+  89% {
+    filter: invert(1) drop-shadow(8px 8px 0px #ff00ae) contrast(3);
+    opacity: 0.8;
+  }
+
+  89.5% {
+    filter: hue-rotate(270deg) contrast(5) saturate(5);
+    opacity: 0.9;
+  }
+
+  90% {
+    filter: invert(0) sepia(1) saturate(10) drop-shadow(5px 0 #00ffff);
+    opacity: 1;
+  }
+
+  91% {
+    filter: invert(1) brightness(3) contrast(5);
+    opacity: 0.6;
+  }
+
+  92% {
+    filter: blur(2px) contrast(4) hue-rotate(45deg);
+    opacity: 0.9;
+  }
+
+  // Blackout
+  95% {
+    filter: brightness(0);
+    opacity: 1;
+  }
+
+  99% {
+    filter: brightness(0);
+    opacity: 1;
+  }
+
+  // Reveal
+  100% {
+    opacity: 0;
+  }
+}
+
+// Retro-style glitch using clip-path and transforms
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+
+  10% {
+    transform: skew(-2deg);
+  }
+
+  20% {
+    transform: skew(2deg);
+  }
+
+  30% {
+    transform: skew(-1deg);
+  }
+
+  40% {
+    transform: skew(1deg);
+  }
+
+  50% {
+    transform: skew(-0.5deg);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(-5px, 0);
+  }
+
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: translate(5px, 0);
+  }
+
+  40% {
+    clip-path: inset(43% 0 1% 0);
+    transform: translate(-5px, 0);
+  }
+
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(5px, 0);
+  }
+
+  80% {
+    clip-path: inset(54% 0 7% 0);
+    transform: translate(-5px, 0);
+  }
+
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    transform: translate(5px, 0);
+  }
+}
+
+// ... existing styles ...
+
+@keyframes sequence {
+
+  // Normal state
+  0% {
+    opacity: 1;
+    filter: none;
+  }
+
+  // Occasional minor glitches (Double hit)
+  // First hit
+  15% {
+    opacity: 1;
+    filter: none;
+    transform: translate(0);
+  }
+
+  15.1% {
+    filter: invert(1) contrast(3);
+    transform: translate(-3px, 3px);
+  }
+
+  15.2% {
+    filter: none;
+    transform: translate(0);
+  }
+
+  // Second hit
+  15.3% {
+    filter: hue-rotate(90deg) saturate(3);
+    transform: translate(3px, -3px);
+  }
+
+  15.4% {
+    filter: none;
+    transform: translate(0);
+  }
+
+  // Next cluster (Double hit)
+  30% {
+    opacity: 1;
+    filter: none;
+    transform: translate(0);
+  }
+
+  // First hit
+  30.1% {
+    filter: invert(0.8) hue-rotate(180deg);
+    transform: skew(2deg);
+  }
+
+  30.2% {
+    filter: none;
+    transform: skew(0);
+  }
+
+  // Second hit
+  30.4% {
+    filter: drop-shadow(4px 0 magenta) drop-shadow(-4px 0 cyan);
+    transform: translate(-2px, 0);
+  }
+
+  30.5% {
+    filter: none;
+    transform: translate(0);
+  }
+
+  // Heavy glitch start (~40s)
+  88% {
+    opacity: 1;
+    filter: none;
+    transform: translate(0);
+    clip-path: none;
+  }
+
+  89% {
+    filter: drop-shadow(-10px 0 #00ff00) drop-shadow(10px 0 #ff00ff) invert(1) contrast(3);
+    transform: scale(1.05) skew(5deg);
+  }
+
+  90% {
+    filter: drop-shadow(10px 0 #00ffff) drop-shadow(-10px 0 #ff0000) saturate(5);
+    transform: translate(-15px, 0) skew(-10deg);
+    clip-path: inset(10% 0 80% 0);
+  }
+
+  91% {
+    filter: invert(1) contrast(5);
+    transform: translate(15px, 15px);
+    clip-path: inset(80% 0 5% 0);
+  }
+
+  92% {
+    filter: blur(4px) contrast(5) hue-rotate(90deg);
+    transform: translate(-15px, -10px) scale(0.9);
+    clip-path: none;
+  }
+
+  // Blackout
+  95% {
+    background-color: #000;
+    opacity: 1;
+    filter: brightness(0); // Force everything black
+  }
+
+  99% {
+    opacity: 1;
+    filter: brightness(0);
+  }
+
+  // Reveal
+  100% {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+  }
+}
+
+
+.container {
+  position: relative;
+  height: 100px;
+  width: 86px;
+  transform:scale(#{$scale * .5});
+  z-index: 10;
+}
+
+.cube {
+  position: absolute;
+  width: 86px;
+  height: 100px;
+}
+
+.right {
+  background: $rightFace;
+  transform: rotate(-30deg) skewX(-30deg) translate(49px, 65px) scaleY(0.86);
+}
+
+.left {
+  background: $leftFace;
+  transform: rotate(90deg) skewX(-30deg) scaleY(0.86) translate(25px, -50px);
+}
+
+.top {
+  background: $topFace;
+  transform: rotate(210deg) skew(-30deg) translate(-75px, -22px) scaleY(0.86);
+  z-index: 2;
+}
+
+.face {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  transform-origin: 0 0;
+  animation: face-sequence 45s linear forwards;
+}
+
+@keyframes face-sequence {
+
+  // Normal state
+  0% {
+    filter: none;
+    opacity: 1;
+  }
+
+  // Occasional minor glitches (Double/Triple hits on faces)
+  // Cluster 1
+  10% {
+    filter: none;
+    opacity: 1;
+  }
+
+  10.1% {
+    filter: invert(1) drop-shadow(4px 4px 0 #00ff00) contrast(2);
+    opacity: 1;
+  }
+
+  10.2% {
+    filter: none;
+    opacity: 1;
+  }
+
+  10.4% {
+    filter: hue-rotate(90deg) saturate(5);
+  }
+
+  10.5% {
+    filter: none;
+  }
+
+  // Cluster 2
+  25% {
+    filter: none;
+  }
+
+  25.1% {
+    filter: hue-rotate(180deg) saturate(10) contrast(3);
+  }
+
+  25.2% {
+    filter: none;
+  }
+
+  25.4% {
+    filter: invert(1);
+  }
+
+  25.5% {
+    filter: none;
+  }
+
+  // Cluster 3
+  38% {
+    filter: none;
+  }
+
+  38.1% {
+    filter: invert(1) drop-shadow(-4px -4px 0 #ff00ff);
+  }
+
+  38.2% {
+    filter: none;
+  }
+
+  38.4% {
+    filter: hue-rotate(270deg) contrast(4);
+  }
+
+  38.5% {
+    filter: none;
+  }
+
+  // Heavy glitch start (~40s)
+  88% {
+    filter: none;
+    opacity: 1;
+  }
+
+  89% {
+    filter: invert(1) drop-shadow(8px 8px 0px #ff00ae) contrast(3);
+    opacity: 0.8;
+  }
+
+  89.5% {
+    filter: hue-rotate(270deg) contrast(5) saturate(5);
+    opacity: 0.9;
+  }
+
+  90% {
+    filter: invert(0) sepia(1) saturate(10) drop-shadow(5px 0 #00ffff);
+    opacity: 1;
+  }
+
+  91% {
+    filter: invert(1) brightness(3) contrast(5);
+    opacity: 0.6;
+  }
+
+  92% {
+    filter: blur(2px) contrast(4) hue-rotate(45deg);
+    opacity: 0.9;
+  }
+
+  // Blackout (matches container)
+  95% {
+    filter: brightness(0);
+    opacity: 1;
+  }
+
+  99% {
+    filter: brightness(0);
+    opacity: 1;
+  }
+
+  // Reveal
+  100% {
+    opacity: 0;
+  }
+}
+
+@mixin slice($h, $w, $l) {
+  .h#{$h}.w#{$w}.l#{$l} {
+    z-index: (-#{$h});
+    animation-name: h#{$h}w#{$w}l#{$l};
+    animation-timing-function: $timingFunction;
+    animation-duration: $duration;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes h#{$h}w#{$w}l#{$l} {
+    0% {
+      transform: translate(($w * -50% - 50%) + ($l * 50% + 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 25 + 25%));
+    }
+
+    14% {
+      transform: translate(($w * -50% - 50%) + ($l * 100% - 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 50 - 25%));
+    }
+
+    28% {
+      transform: translate(($w * -100% + 50%) + ($l * 100% - 50%), ($h * 50 - 200%) + ($w * 50% - 75%) + ($l * 50 - 25%));
+    }
+
+    43% {
+      transform: translate(($w * -100% - 100%) + ($l * 100% + 100%), ($h * 100 - 400%) + ($w * 50% - 50%) + ($l * 50 + 50%));
+    }
+
+    57% {
+      transform: translate(($w * -100% - 100%) + ($l * 50% + 200%), ($h * 100 - 400%) + ($w * 50% - 50%) + ($l * 25 + 100%));
+    }
+
+    71% {
+      transform: translate(($w * -50% - 200%) + ($l * 50% + 200%), ($h * 100 - 375%) + ($w * 25% - 25%) + ($l * 25 + 100%));
+    }
+
+    85% {
+      transform: translate(($w * -50% - 50%) + ($l * 50% + 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 25 + 25%));
+    }
+
+    100% {
+      transform: translate(($w * -50% - 50%) + ($l * 50% + 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 25 + 25%));
+    }
+  }
+}
+
+@mixin generateSlice() {
+  @for $i from 1 to 4 {
+    @for $j from 1 to 4 {
+      @for $k from 1 to 4 {
+        @include slice($i, $j, $k);
+      }
+    }
+  }
+}
+
+// ... existing styles ...
+
+.textContainer {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 300px;
+  z-index: 10;
+}
+
+.loadingText {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 4px;
+  position: relative;
+  margin-bottom: 25px;
+  // Use prime durations to creating out-of-sync "random" feel
+  animation: violent-glitch 2.3s infinite linear alternate-reverse;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $background;
+  }
+
+  &::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: violent-glitch-anim 3.7s infinite linear alternate-reverse;
+  }
+
+  &::after {
+    left: -2px;
+    text-shadow: -2px 0 #00fff9;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: violent-glitch-anim-2 4.1s infinite linear alternate-reverse;
+  }
+}
+
+.loadingLine {
+  width: 100%;
+  height: 10px;
+  border: 1px solid #00F0FF; // Fixed border
+  box-shadow: 0 0 5px #00F0FF, inset 0 0 5px #00F0FF;
+  background: transparent; // No fill initially
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  animation: bar-glitch 2s infinite linear alternate-reverse;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%; // Start at 0
+    background: #00F0FF;
+    box-shadow: 0 0 10px #00F0FF;
+    animation: line-grow 2.5s linear forwards;
+  }
+}
+
+@keyframes bar-glitch {
+  0% {
+    opacity: 1;
+    transform: skew(0deg);
+    box-shadow: 0 0 5px #00F0FF, inset 0 0 5px #00F0FF;
+  }
+
+  2% {
+    opacity: 0.8;
+    transform: skew(2deg);
+    box-shadow: 2px 0 5px #ff00c1, inset 0 0 5px #ff00c1;
+  }
+
+  4% {
+    opacity: 1;
+    transform: skew(0deg);
+    box-shadow: 0 0 5px #00F0FF, inset 0 0 5px #00F0FF;
+  }
+
+  10% {
+    opacity: 1;
+    transform: skew(0deg);
+  }
+
+  12% {
+    opacity: 0.9;
+    transform: skew(-2deg);
+    box-shadow: -2px 0 5px #00ff00, inset 0 0 5px #00ff00;
+  }
+
+  14% {
+    opacity: 1;
+    transform: skew(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: skew(0deg);
+  }
+
+  52% {
+    opacity: 0.5;
+    transform: scaleY(1.5) skew(5deg);
+  }
+
+  54% {
+    opacity: 1;
+    transform: scaleY(1) skew(0deg);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 0.8;
+    transform: skew(10deg);
+    filter: hue-rotate(90deg);
+  }
+
+  84% {
+    opacity: 1;
+    transform: skew(0deg);
+    filter: none;
+  }
+}
+
+@keyframes line-grow {
+  0% {
+    width: 0%;
+  }
+
+  96% { /* 2.4s of 2.5s */
+    width: 40%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes violent-glitch {
+  0% {
+    transform: translate(-2px, 0);
+  }
+
+  10% {
+    transform: translate(2px, 0);
+  }
+
+  20% {
+    transform: translate(-1px, 0);
+  }
+
+  30% {
+    transform: translate(3px, 0);
+  }
+
+  40% {
+    transform: translate(-2px, 0);
+  }
+
+  50% {
+    transform: translate(1px, 0);
+  }
+
+  60% {
+    transform: translate(-1px, 0);
+  }
+
+  70% {
+    transform: translate(2px, 0);
+  }
+
+  80% {
+    transform: translate(-3px, 0);
+  }
+
+  90% {
+    transform: translate(1px, 0);
+  }
+
+  100% {
+    transform: translate(2px, 0);
+  }
+}
+
+@keyframes violent-glitch-anim {
+  0% {
+    clip: rect(14px, 9999px, 127px, 0);
+    transform: skew(0.5deg);
+  }
+
+  5% {
+    clip: rect(83px, 9999px, 11px, 0);
+    transform: skew(0.5deg);
+  }
+
+  10% {
+    clip: rect(98px, 9999px, 91px, 0);
+    transform: skew(0.5deg);
+  }
+
+  15% {
+    clip: rect(2px, 9999px, 20px, 0);
+    transform: skew(0.5deg);
+  }
+
+  20% {
+    clip: rect(31px, 9999px, 14px, 0);
+    transform: skew(0.5deg);
+  }
+
+  25% {
+    clip: rect(96px, 9999px, 118px, 0);
+    transform: skew(0.5deg);
+  }
+
+  30% {
+    clip: rect(78px, 9999px, 63px, 0);
+    transform: skew(0.5deg);
+  }
+
+  35% {
+    clip: rect(104px, 9999px, 137px, 0);
+    transform: skew(0.5deg);
+  }
+
+  40% {
+    clip: rect(90px, 9999px, 145px, 0);
+    transform: skew(0.5deg);
+  }
+
+  45% {
+    clip: rect(51px, 9999px, 2px, 0);
+    transform: skew(0.5deg);
+  }
+
+  50% {
+    clip: rect(138px, 9999px, 25px, 0);
+    transform: skew(0.5deg);
+  }
+
+  55% {
+    clip: rect(2px, 9999px, 133px, 0);
+    transform: skew(0.5deg);
+  }
+
+  60% {
+    clip: rect(4px, 9999px, 3px, 0);
+    transform: skew(0.5deg);
+  }
+
+  65% {
+    clip: rect(136px, 9999px, 4px, 0);
+    transform: skew(0.5deg);
+  }
+
+  70% {
+    clip: rect(24px, 9999px, 47px, 0);
+    transform: skew(0.5deg);
+  }
+
+  75% {
+    clip: rect(29px, 9999px, 7px, 0);
+    transform: skew(0.5deg);
+  }
+
+  80% {
+    clip: rect(101px, 9999px, 22px, 0);
+    transform: skew(0.5deg);
+  }
+
+  85% {
+    clip: rect(69px, 9999px, 57px, 0);
+    transform: skew(0.5deg);
+  }
+
+  90% {
+    clip: rect(144px, 9999px, 139px, 0);
+    transform: skew(0.5deg);
+  }
+
+  95% {
+    clip: rect(35px, 9999px, 83px, 0);
+    transform: skew(0.5deg);
+  }
+
+  100% {
+    clip: rect(117px, 9999px, 82px, 0);
+    transform: skew(0.5deg);
+  }
+}
+
+@keyframes violent-glitch-anim-2 {
+  0% {
+    clip: rect(122px, 9999px, 148px, 0);
+    transform: skew(0.5deg);
+  }
+
+  5% {
+    clip: rect(12px, 9999px, 93px, 0);
+    transform: skew(0.5deg);
+  }
+
+  10% {
+    clip: rect(133px, 9999px, 17px, 0);
+    transform: skew(0.5deg);
+  }
+
+  15% {
+    clip: rect(107px, 9999px, 96px, 0);
+    transform: skew(0.5deg);
+  }
+
+  20% {
+    clip: rect(70px, 9999px, 107px, 0);
+    transform: skew(0.5deg);
+  }
+
+  25% {
+    clip: rect(10px, 9999px, 7px, 0);
+    transform: skew(0.5deg);
+  }
+
+  30% {
+    clip: rect(13px, 9999px, 27px, 0);
+    transform: skew(0.5deg);
+  }
+
+  35% {
+    clip: rect(60px, 9999px, 60px, 0);
+    transform: skew(0.5deg);
+  }
+
+  40% {
+    clip: rect(138px, 9999px, 50px, 0);
+    transform: skew(0.5deg);
+  }
+
+  45% {
+    clip: rect(39px, 9999px, 23px, 0);
+    transform: skew(0.5deg);
+  }
+
+  50% {
+    clip: rect(145px, 9999px, 79px, 0);
+    transform: skew(0.5deg);
+  }
+
+  55% {
+    clip: rect(149px, 9999px, 23px, 0);
+    transform: skew(0.5deg);
+  }
+
+  60% {
+    clip: rect(15px, 9999px, 11px, 0);
+    transform: skew(0.5deg);
+  }
+
+  65% {
+    clip: rect(44px, 9999px, 107px, 0);
+    transform: skew(0.5deg);
+  }
+
+  70% {
+    clip: rect(37px, 9999px, 21px, 0);
+    transform: skew(0.5deg);
+  }
+
+  75% {
+    clip: rect(38px, 9999px, 86px, 0);
+    transform: skew(0.5deg);
+  }
+
+  80% {
+    clip: rect(54px, 9999px, 104px, 0);
+    transform: skew(0.5deg);
+  }
+
+  85% {
+    clip: rect(131px, 9999px, 137px, 0);
+    transform: skew(0.5deg);
+  }
+
+  90% {
+    clip: rect(63px, 9999px, 32px, 0);
+    transform: skew(0.5deg);
+  }
+
+  95% {
+    clip: rect(19px, 9999px, 2px, 0);
+    transform: skew(0.5deg);
+  }
+
+  100% {
+    clip: rect(8px, 9999px, 18px, 0);
+    transform: skew(0.5deg);
+  }
+}
+
+@mixin slice($h, $w, $l) {
+  .h#{$h}.w#{$w}.l#{$l} {
+    z-index: (-#{$h});
+    animation-name: h#{$h}w#{$w}l#{$l};
+    animation-timing-function: $timingFunction;
+    animation-duration: $duration;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes h#{$h}w#{$w}l#{$l} {
+    0% {
+      transform: translate(($w * -50% - 50%) + ($l * 50% + 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 25 + 25%));
+    }
+
+    14% {
+      transform: translate(($w * -50% - 50%) + ($l * 100% - 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 50 - 25%));
+    }
+
+    28% {
+      transform: translate(($w * -100% + 50%) + ($l * 100% - 50%), ($h * 50 - 200%) + ($w * 50% - 75%) + ($l * 50 - 25%));
+    }
+
+    43% {
+      transform: translate(($w * -100% - 100%) + ($l * 100% + 100%), ($h * 100 - 400%) + ($w * 50% - 50%) + ($l * 50 + 50%));
+    }
+
+    57% {
+      transform: translate(($w * -100% - 100%) + ($l * 50% + 200%), ($h * 100 - 400%) + ($w * 50% - 50%) + ($l * 25 + 100%));
+    }
+
+    71% {
+      transform: translate(($w * -50% - 200%) + ($l * 50% + 200%), ($h * 100 - 375%) + ($w * 25% - 25%) + ($l * 25 + 100%));
+    }
+
+    85% {
+      transform: translate(($w * -50% - 50%) + ($l * 50% + 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 25 + 25%));
+    }
+
+    100% {
+      transform: translate(($w * -50% - 50%) + ($l * 50% + 50%), ($h * 50 - 200%) + ($w * 25% - 25%) + ($l * 25 + 25%));
+    }
+  }
+}
+
+@mixin generateSlice() {
+  @for $i from 1 to 4 {
+    @for $j from 1 to 4 {
+      @for $k from 1 to 4 {
+        @include slice($i, $j, $k);
+      }
+    }
+  }
+}
+
+@include generateSlice();

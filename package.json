@@ -1,39 +1,49 @@
 {
-  "name": "my-app",
+  "name": "robo-1",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:seed": "npx tsx scripts/seed.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.37.3",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
-    "date-fns": "^4.1.0",
-    "framer-motion": "^12.31.2",
+    "@types/three": "^0.182.0",
+    "@uploadthing/react": "^7.3.3",
+    "bcryptjs": "^3.0.3",
+    "clsx": "^2.1.1",
+    "cookie": "^1.1.1",
+    "dotenv": "^17.2.3",
+    "framer-motion": "^12.29.3",
+    "jsonwebtoken": "^9.0.3",
     "lucide-react": "^0.563.0",
-    "mongodb": "^7.0.0",
-    "mongoose": "^9.1.5",
+    "mongoose": "^9.1.6",
     "next": "16.1.6",
-    "next-cloudinary": "^6.17.5",
-    "nodemailer": "^7.0.13",
     "razorpay": "^2.9.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-icons": "^5.5.0",
-    "react-qr-code": "^2.0.18",
     "svix": "^1.84.1",
-    "swiper": "^12.0.3",
-    "three": "^0.182.0"
+    "three": "^0.182.0",
+    "uploadthing": "^7.7.4",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "babel-plugin-react-compiler": "1.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4"
+    "sass": "^1.97.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
